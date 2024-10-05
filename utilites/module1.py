@@ -43,18 +43,18 @@ complimentary_rules_RNA = {
 }
 
 
-def transcribe(seq:List[str]):
+def transcribe(seq: list[str]):
     rules = transcribtion_rules_DNA
     if "U" in seq or "u" in seq:
         rules = transcribtion_rules_RNA
     return "".join([rules[c] for c in seq])
 
 
-def reverse(seq:List[str]):
+def reverse(seq: list[str]):
     return seq[::-1]
 
 
-def complement(seq:List[str]):
+def complement(seq: list[str]):
     if 'U' in seq or 'u' in seq:
         rules = complimentary_rules_RNA
     else:
@@ -66,14 +66,14 @@ def complement(seq:List[str]):
     return result
 
 
-def reverse_complement(seq:List[str]):
+def reverse_complement(seq: list[str]):
     result = reverse(complement(seq))
     return result
 
 
-def gc_cont(seq:List[str]):
-    seq_ = seq.upper()
-    g_count = seq.count("G")
-    c_count = seq.count("C")
+def gc_cont(seq: list[str]):
+    an_seq = seq.upper()
+    g_count = an_seq.count("G")
+    c_count = an_seq.count("C")
     result = ((g_count + c_count) / len(seq)) * 100
     return int(result)
