@@ -1,3 +1,5 @@
+from typing import Tuple, Dict, Any
+
 seqs = {
     # 'name' : ('sequence', 'quality')
     '@SRX079801': ('ACAGCAACATAAACATGATGGGATGGCGTAAGCCCCCGAGATATCAGTTTACCCAGGATAAGAGATTAAATTATGAGCAACATTATTAA', 'FGGGFGGGFGGGFGDFGCEBB@CCDFDDFFFFBFFGFGEFDFFFF;D@DD>C@DDGGGDFGDGG?GFGFEGFGGEF@FDGGGFGFBGGD'),
@@ -14,80 +16,27 @@ seqs = {
     '@SRX079812': ('AGTGAGACACCCCTGAACATTCCTAGTAAGACATCTTTGAATATTACTAGTTAGCCACACTTTAAAATGACCCG', '<98;<@@@:@CD@BCCDD=DBBCEBBAAA@9???@BCDBCGF=GEGDFGDBEEEEEFFFF=EDEE=DCD@@BBC')
     }
 
-phred = {
-    '!': 0,
-    '"': 1,
-    '#': 2,
-    '$': 3,
-    '%': 4,
-    '&': 5,
-    "'": 6,
-    '(': 7,
-    ')': 8,
-    '*': 9,
-    '+': 10,
-    ',': 11,
-    '-': 12,
-    '.': 13,
-    '/': 14,
-    '0': 15,
-    '1': 16,
-    '2': 17,
-    '3': 18,
-    '4': 19,
-    '5': 20,
-    '6': 21,
-    '7': 22,
-    '8': 23,
-    '9': 24,
-    ':': 25,
-    ';': 26,
-    '<': 27,
-    '=': 28,
-    '>': 29,
-    '?': 30,
-    '@': 31,
-    'A': 32,
-    'B': 33,
-    'C': 34,
-    'D': 35,
-    'E': 36,
-    'F': 37,
-    'G': 38,
-    'H': 39,
-    'I': 40
-}
 
-
-def gc_bounds(gc_low: int, gc_high: int):
+def gc_bounds_12(*args: Tuple[float, float]) -> float:
     result = {}
-    for key, values in seqs.items():
-        G_count = values[0].count("G")
-        C_count = values[0].count("C")
-        gc_content = ((G_count + C_count) / len(values[0])) * 100
-        if gc_low <= gc_content <= gc_high:
-            result[key] = values
+    for key, (sequence, quality) in seqs.items():
+        gc = sequence.count("G") + sequence.count("C")
+        gc_cont = gc / len(sequence) * 100
+        result[key] = gc_cont
     return result
 
 
-def length_bounds(length_low: int, length_high: int):
+def length_bounds_12(*args: Tuple[int, int]) -> int:
     result = {}
-    for key, values in seqs.items():
-        len_seq = len(values[0])
-        if len_seq >= length_low and len_seq <= length_high:
-            result[key] = values
+    for key, (sequence, quality) in seqs.items():
+        len_seq = len(sequence)
+        result[key] = len_seq
     return result
 
 
-def quality_threshold(quality: int):
+def quality_threshold_12(int) -> str:
     result = {}
-    for key, values in seqs.items():
-        q_seq = 0
-        for s in values[1]:
-            if s in phred:
-                q_seq += phred[s]
-            else:
-                q_seq += 0
-        if quality <= q_seq:
-            result[key] = values
+    for key, (sequence, quality) in seqs.items():
+        q_score = (sum(ord(q)-33 for q in quality)/len(quality))
+        result[key] = q_score
     return result
