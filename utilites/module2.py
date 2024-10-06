@@ -26,7 +26,7 @@ def gc_bounds_12(*args: Tuple[float, float]) -> float:
     return result
 
 
-def length_bounds_12(*args: Tuple[int, int]) -> int:
+def length_bounds_12(*args: Optional[Tuple[Optional[int], Optional[int]]]) -> int:
     result = {}
     for key, (sequence, quality) in seqs.items():
         len_seq = len(sequence)
