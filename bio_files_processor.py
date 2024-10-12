@@ -49,7 +49,7 @@ def parse_blast_output(input_file: str):
 
 
 input_file = os.path.join("example_blast_results.txt")
-output_file = os.path.join("output_file.fasta")
+output_file = os.path.join("output_file.txt")
 input_fasta = os.path.join("example_multiline_fasta.fasta")
 output_fasta = os.path.join("output_fasta.fasta")
 parse_blast_output(input_file)
