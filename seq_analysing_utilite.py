@@ -94,10 +94,10 @@ def filter_fastq(input_fastq:str,
             continue
         result[key] = (sequence, quality)
 
-    with open(output_fasta,"w") as fastq:
+    with open(output_fastq,"w") as fastq:
         for header,(sequence,quality) in result.items():
                 fastq.write(header + "\n" + sequence + "\n+\n" + quality+ "\n")
 
 input_fastq = os.path.join("example_fastq.fastq")
-output_fasta = os.path.join("output_fastq.fasta")
+output_fastq = os.path.join("output_fastq.fastq")
 filter_fastq(input_fastq,output_fasta)
