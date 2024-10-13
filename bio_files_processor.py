@@ -36,20 +36,24 @@ def parse_blast_output(input_file: str):
     Return value:
     The function does not return any values but creates a file with list of proteins in alphabetical order.
     """
-    proteins = []
     with open(input_file, "r") as file:
         lines = file.readlines()
         for line in range(len(lines)-1):
             if lines[line].startswith("Description"):
-                proteins.append(lines[line + 1].strip())
+                blast_res.append(lines[line + 1].strip())
+        for line in blast_res:
+            words = ""
+            for l in line:
+                if l == "]":
+                    proteins.append(words+"]")
+                    break
+                words += l
+            else:
+                proteins.append(words)
         proteins.sort()
-    with open(output_file, "w") as file:
-        for p in proteins:
-            file.write(p + "\n")
 
 
 input_file = os.path.join("example_blast_results.txt")
 output_file = os.path.join("output_file.txt")
 input_fasta = os.path.join("example_multiline_fasta.fasta")
 output_fasta = os.path.join("output_fasta.fasta")
-parse_blast_output(input_file)
