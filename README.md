@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # seq_analysing_utilite
 Here I present my first bioinformatics utility. This utility has two main functions that work with DNA and RNA sequences
 
@@ -8,6 +9,8 @@ Here I present my first bioinformatics utility. This utility has two main functi
 =======
 =======
 >>>>>>> ab873d1 (Update README.md)
+=======
+>>>>>>> main
 
 # `seq_analysing_utilite`
 Here I present my first bioinformatics utility. This utility has four functions that work with DNA and RNA sequences, including FASTA and BLAST output files
@@ -16,15 +19,19 @@ Here I present my first bioinformatics utility. This utility has four functions 
 
 ## `run_dna_rna_tools()`
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> fe3d0db (Update README.md)
 =======
 >>>>>>> ab873d1 (Update README.md)
+=======
+>>>>>>> main
 The run_dna_rna_tools function allows users to perform various operations on DNA or RNA sequences. The function accepts a variable number of sequence strings as input, followed by the operation to be performed.
 
 ### Arguments:
 *args: The function takes any number of string arguments representing nucleotide sequences followed by the name of the operation.
 Sequences should either be RNA or DNA but not a mix of both (e.g., a sequence containing both T and U will return an error).
 Available operations are:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 * **transcribe**: Converts a DNA sequence into its RNA equivalent.
@@ -58,6 +65,8 @@ filter_fastq(seqs, gc_bounds=(30.0, 70.0), length_bounds=(50, 150), quality_thre
 =======
 =======
 >>>>>>> ab873d1 (Update README.md)
+=======
+>>>>>>> main
 * **transcribe**
 * **complement**
 * **reverse**
@@ -120,6 +129,9 @@ parse_blast_output(input_file)
 ### Output:
 `output_file.txt`
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> fe3d0db (Update README.md)
 =======
 >>>>>>> ab873d1 (Update README.md)
+=======
+>>>>>>> main

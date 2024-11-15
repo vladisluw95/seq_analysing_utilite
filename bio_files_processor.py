@@ -40,12 +40,16 @@ def parse_blast_output(input_file: str):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 8d7ced9 (Solve merge conflict)
+=======
+>>>>>>> main
 =======
     blast_res = []
     proteins = []
 >>>>>>> 8c818ea (Add changes for merging)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     proteins = []
@@ -54,14 +58,19 @@ def parse_blast_output(input_file: str):
 >>>>>>> f22a624 (Update bio_files_processor.py)
 =======
 >>>>>>> 8d7ced9 (Solve merge conflict)
+=======
+>>>>>>> main
     with open(input_file, "r") as file:
         lines = file.readlines()
         for line in range(len(lines)-1):
             if lines[line].startswith("Description"):
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f22a624 (Update bio_files_processor.py)
+=======
+>>>>>>> main
                 blast_res.append(lines[line + 1].strip())
         for line in blast_res:
             words = ""
@@ -73,6 +82,9 @@ def parse_blast_output(input_file: str):
             else:
                 proteins.append(words)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
         proteins.sort()
 <<<<<<< HEAD
 =======
@@ -87,6 +99,7 @@ input_file = os.path.join("example_blast_results.txt")
 output_file = os.path.join("output_file.txt")
 input_fasta = os.path.join("example_multiline_fasta.fasta")
 output_fasta = os.path.join("output_fasta.fasta")
+<<<<<<< HEAD
 =======
                 proteins.append(lines[line + 1].strip())
 =======
@@ -110,3 +123,5 @@ parse_blast_output(input_file)
 >>>>>>> 0581418 (Add new utilites and modified filter_fastq)
 =======
 >>>>>>> f22a624 (Update bio_files_processor.py)
+=======
+>>>>>>> main
