@@ -44,16 +44,21 @@ complimentary_rules_RNA = {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 def transcribe(seq: list[str]):
 =======
 def transcribe(seq:List[str]):
 >>>>>>> 8fa1609 (Add HW3 funcs to module1)
+=======
+def transcribe(seq: list[str]):
+>>>>>>> 7606f0f (Add HW4 funcs to module2.py & attach flake8 res)
     rules = transcribtion_rules_DNA
     if "U" in seq or "u" in seq:
         rules = transcribtion_rules_RNA
     return "".join([rules[c] for c in seq])
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 def reverse(seq: [str]):
     return seq[::-1]
@@ -67,6 +72,13 @@ def reverse(seq:List[str]):
 
 def complement(seq:List[str]):
 >>>>>>> 8fa1609 (Add HW3 funcs to module1)
+=======
+def reverse(seq: list[str]):
+    return seq[::-1]
+
+
+def complement(seq: list[str]):
+>>>>>>> 7606f0f (Add HW4 funcs to module2.py & attach flake8 res)
     if 'U' in seq or 'u' in seq:
         rules = complimentary_rules_RNA
     else:
@@ -79,14 +91,19 @@ def complement(seq:List[str]):
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 def reverse_complement(seq: [str]):
 =======
 def reverse_complement(seq:List[str]):
 >>>>>>> 8fa1609 (Add HW3 funcs to module1)
+=======
+def reverse_complement(seq: list[str]):
+>>>>>>> 7606f0f (Add HW4 funcs to module2.py & attach flake8 res)
     result = reverse(complement(seq))
     return result
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 def gc_cont(seq: [str]):
     an_seq = seq.upper()
@@ -102,3 +119,11 @@ def gc_cont(seq:List[str]):
     result = ((g_count + c_count) / len(seq)) * 100
     return int(result)
 >>>>>>> 8fa1609 (Add HW3 funcs to module1)
+=======
+def gc_cont(seq: list[str]):
+    an_seq = seq.upper()
+    g_count = an_seq.count("G")
+    c_count = an_seq.count("C")
+    result = ((g_count + c_count) / len(seq)) * 100
+    return int(result)
+>>>>>>> 7606f0f (Add HW4 funcs to module2.py & attach flake8 res)
