@@ -39,15 +39,21 @@ def parse_blast_output(input_file: str):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8d7ced9 (Solve merge conflict)
 =======
     blast_res = []
     proteins = []
 >>>>>>> 8c818ea (Add changes for merging)
+<<<<<<< HEAD
 =======
     proteins = []
 >>>>>>> 0581418 (Add new utilites and modified filter_fastq)
 =======
 >>>>>>> f22a624 (Update bio_files_processor.py)
+=======
+>>>>>>> 8d7ced9 (Solve merge conflict)
     with open(input_file, "r") as file:
         lines = file.readlines()
         for line in range(len(lines)-1):
@@ -86,6 +92,13 @@ output_fasta = os.path.join("output_fasta.fasta")
 =======
 >>>>>>> f22a624 (Update bio_files_processor.py)
         proteins.sort()
+<<<<<<< HEAD
+=======
+
+    with open(output_file, "w") as file:
+        for p in proteins:
+            file.write(p + "\n")
+>>>>>>> 8c818ea (Add changes for merging)
 
 
 input_file = os.path.join("example_blast_results.txt")
