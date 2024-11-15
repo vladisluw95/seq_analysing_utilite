@@ -1,6 +1,10 @@
-from utilites.module1 import transcribe, complement, reverse, reverse_complement, gc_cont
-from utilites.module2 import seqs, gc_bounds_12, length_bounds_12, quality_threshold_12
-from typing import Dict, Union, Tuple, List
+import os.path
+from typing import Dict, Union, List, Tuple
+
+
+
+from utilites.nucleotides_act import transcribe, complement, reverse, reverse_complement, gc_cont
+from utilites.filtering import gc_bounds_mod, length_bounds_mod, quality_threshold_mod
 
 
 def run_dna_rna_tools(*args: Union[str, str]) -> Union[str, List[str]]:
@@ -39,33 +43,46 @@ def run_dna_rna_tools(*args: Union[str, str]) -> Union[str, List[str]]:
     return dna_tools_res if len(dna_tools_res) > 1 else dna_tools_res[0]
 
 
-def filter_fastq(seqs: Dict[str, Tuple[str, str]], **params) -> Dict[str, tuple[str, str]]:
+def filter_fastq(input_fastq:str,
+                 output_fasta: str,
+                 gc_bounds: Tuple[float,float] = (0.0, 100.0),
+                 length_bounds:Tuple[int,int] = (0, 2**32),
+                 quality_threshold: float = 0.0) -> None:
     """
-    filter_fastq takes as input a dict with fastq as keys, sequence as a value[0], phred code as a value[1] and operations for analysing of fastq in dict.
+    filter_fastq takes as input an file in fastq format for analysing nucleotides sequences.
+    filter_fastq returns result of analysing to output_fast.fastq/
 
     Args
-    seqs are dict named as seqs in module2.py
-    **params are operations for analysing fastq from seqs
+    input_fastq (str) path to the input fasta file with a raw data of the sequensing
+    And params for func from
+    gc_bounds
+    length_bounds
+    quality_threshold
 
-    Returns
-    Dict of fastqs that suit for conditionals in operation.
+    Return value:
+    The function does not return any values but creates a file with result of analysing of sequences.
     """
+    fastq_data = {}
+    with open(input_fastq,"r") as fastq:
+        while True:
+            header = fastq.readline()
+            if not header:
+                break
+            sequence = fastq.readline()
+            fastq.readline()
+            quality = fastq.readline()
+            fastq_data[header] = (sequence, quality)
+
     result = {}
-    if params.get("gc_bounds") is None:
-        gc_bounds = (0.0, 100.0)
-    else: gc_bounds = params.get("gc_bounds")
-    if params.get("quality_threshold") is None:
-        quality_threshold = 0
-    else: quality_threshold = params.get("quality_threshold")
-    if params.get("length_bounds") is None:
-        length_bounds = (0, 2**32)
-    else: length_bounds = params.get("length_bounds")
+    gc_bounds = (0.0, 100.0) if gc_bounds is None else gc_bounds
+    length_bounds = (0, 2**32) if length_bounds is None else length_bounds
+    quality_threshold = (0.0) if quality_threshold is None else quality_threshold
 
-    gc_res = gc_bounds_12(seqs)
-    length_res = length_bounds_12(seqs)
-    quality_res = quality_threshold_12(seqs)
+    gc_res = gc_bounds_mod(fastq_data)
+    length_res = length_bounds_mod(fastq_data)
+    quality_res = quality_threshold_mod(fastq_data, quality_threshold)
 
-    for key, (sequence, quality) in seqs.items():
+    for key, (sequence, quality) in fastq_data.items():
         gc = gc_res.get(key)
         if gc is None or not (gc_bounds[0] <= gc <= gc_bounds[1]):
             continue
@@ -76,4 +93,11 @@ def filter_fastq(seqs: Dict[str, Tuple[str, str]], **params) -> Dict[str, tuple[
         if current_quality is None or not (quality_threshold < current_quality):
             continue
         result[key] = (sequence, quality)
-    return result
+
+    with open(output_fasta,"w") as fastq:
+        for header,(sequence,quality) in result.items():
+                fastq.write(header + "\n" + sequence + "\n+\n" + quality+ "\n")
+
+input_fastq = os.path.join("example_fastq.fastq")
+output_fasta = os.path.join("output_fastq.fasta")
+filter_fastq(input_fastq,output_fasta)
