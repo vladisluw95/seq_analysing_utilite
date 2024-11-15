@@ -37,14 +37,40 @@ def parse_blast_output(input_file: str):
     The function does not return any values but creates a file with list of proteins in alphabetical order.
     """
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8d7ced9 (Solve merge conflict)
+=======
+>>>>>>> main
 =======
     blast_res = []
     proteins = []
 >>>>>>> 8c818ea (Add changes for merging)
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    proteins = []
+>>>>>>> 0581418 (Add new utilites and modified filter_fastq)
+=======
+>>>>>>> f22a624 (Update bio_files_processor.py)
+=======
+>>>>>>> 8d7ced9 (Solve merge conflict)
+=======
+>>>>>>> main
     with open(input_file, "r") as file:
         lines = file.readlines()
         for line in range(len(lines)-1):
             if lines[line].startswith("Description"):
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f22a624 (Update bio_files_processor.py)
+=======
+>>>>>>> main
                 blast_res.append(lines[line + 1].strip())
         for line in blast_res:
             words = ""
@@ -55,6 +81,10 @@ def parse_blast_output(input_file: str):
                 words += l
             else:
                 proteins.append(words)
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
         proteins.sort()
 <<<<<<< HEAD
 =======
@@ -69,3 +99,29 @@ input_file = os.path.join("example_blast_results.txt")
 output_file = os.path.join("output_file.txt")
 input_fasta = os.path.join("example_multiline_fasta.fasta")
 output_fasta = os.path.join("output_fasta.fasta")
+<<<<<<< HEAD
+=======
+                proteins.append(lines[line + 1].strip())
+=======
+>>>>>>> f22a624 (Update bio_files_processor.py)
+        proteins.sort()
+<<<<<<< HEAD
+=======
+
+    with open(output_file, "w") as file:
+        for p in proteins:
+            file.write(p + "\n")
+>>>>>>> 8c818ea (Add changes for merging)
+
+
+input_file = os.path.join("example_blast_results.txt")
+output_file = os.path.join("output_file.txt")
+input_fasta = os.path.join("example_multiline_fasta.fasta")
+output_fasta = os.path.join("output_fasta.fasta")
+<<<<<<< HEAD
+parse_blast_output(input_file)
+>>>>>>> 0581418 (Add new utilites and modified filter_fastq)
+=======
+>>>>>>> f22a624 (Update bio_files_processor.py)
+=======
+>>>>>>> main

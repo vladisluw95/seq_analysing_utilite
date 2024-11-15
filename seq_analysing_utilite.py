@@ -94,14 +94,44 @@ def filter_fastq(input_fastq:str,
             continue
         result[key] = (sequence, quality)
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     with open(output_fastq,"w") as fastq:
+=======
+    with open(output_fasta,"w") as fastq:
+>>>>>>> 0581418 (Add new utilites and modified filter_fastq)
+=======
+    with open(output_fastq,"w") as fastq:
+>>>>>>> 5c53a3c (Update seq_analysing_utilite.py)
+=======
+    with open(output_fastq,"w") as fastq:
+>>>>>>> main
         for header,(sequence,quality) in result.items():
                 fastq.write(header + "\n" + sequence + "\n+\n" + quality+ "\n")
 
 input_fastq = os.path.join("example_fastq.fastq")
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 output_fastq = os.path.join("output_fastq.fastq")
 <<<<<<< HEAD
 filter_fastq(input_fastq,output_fasta)
 =======
 filter_fastq(input_fastq,output_fastq)
 >>>>>>> 8c818ea (Add changes for merging)
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+output_fasta = os.path.join("output_fastq.fasta")
+=======
+output_fastq = os.path.join("output_fastq.fastq")
+>>>>>>> 5c53a3c (Update seq_analysing_utilite.py)
+filter_fastq(input_fastq,output_fasta)
+>>>>>>> 0581418 (Add new utilites and modified filter_fastq)
+=======
+>>>>>>> 8d7ced9 (Solve merge conflict)
+=======
+>>>>>>> main
