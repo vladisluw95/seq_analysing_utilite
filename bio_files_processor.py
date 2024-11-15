@@ -37,14 +37,19 @@ def parse_blast_output(input_file: str):
     The function does not return any values but creates a file with list of proteins in alphabetical order.
     """
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     blast_res = []
     proteins = []
 >>>>>>> 8c818ea (Add changes for merging)
+=======
+    proteins = []
+>>>>>>> 0581418 (Add new utilites and modified filter_fastq)
     with open(input_file, "r") as file:
         lines = file.readlines()
         for line in range(len(lines)-1):
             if lines[line].startswith("Description"):
+<<<<<<< HEAD
                 blast_res.append(lines[line + 1].strip())
         for line in blast_res:
             words = ""
@@ -69,3 +74,17 @@ input_file = os.path.join("example_blast_results.txt")
 output_file = os.path.join("output_file.txt")
 input_fasta = os.path.join("example_multiline_fasta.fasta")
 output_fasta = os.path.join("output_fasta.fasta")
+=======
+                proteins.append(lines[line + 1].strip())
+        proteins.sort()
+    with open(output_file, "w") as file:
+        for p in proteins:
+            file.write(p + "\n")
+
+
+input_file = os.path.join("example_blast_results.txt")
+output_file = os.path.join("output_file.fasta")
+input_fasta = os.path.join("example_multiline_fasta.fasta")
+output_fasta = os.path.join("output_fasta.fasta")
+parse_blast_output(input_file)
+>>>>>>> 0581418 (Add new utilites and modified filter_fastq)

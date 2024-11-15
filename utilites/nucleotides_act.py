@@ -45,6 +45,7 @@ complimentary_rules_RNA = {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 def transcribe(seq: list[str]):
 =======
 def transcribe(seq:List[str]):
@@ -52,6 +53,9 @@ def transcribe(seq:List[str]):
 =======
 def transcribe(seq: list[str]):
 >>>>>>> 7606f0f (Add HW4 funcs to module2.py & attach flake8 res)
+=======
+def transcribe(seq: list[str]):
+>>>>>>> 0581418 (Add new utilites and modified filter_fastq)
     rules = transcribtion_rules_DNA
     if "U" in seq or "u" in seq:
         rules = transcribtion_rules_RNA
@@ -61,11 +65,15 @@ def transcribe(seq: list[str]):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0581418 (Add new utilites and modified filter_fastq)
 def reverse(seq: [str]):
     return seq[::-1]
 
 
 def complement(seq: [str]):
+<<<<<<< HEAD
 =======
 def reverse(seq:List[str]):
     return seq[::-1]
@@ -87,6 +95,8 @@ def reverse(seq: [str]):
 
 def complement(seq: [str]):
 >>>>>>> ef83b33 (Update the main func and add flake8*.png)
+=======
+>>>>>>> 0581418 (Add new utilites and modified filter_fastq)
     if 'U' in seq or 'u' in seq:
         rules = complimentary_rules_RNA
     else:
@@ -101,6 +111,7 @@ def complement(seq: [str]):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 def reverse_complement(seq: [str]):
 =======
 def reverse_complement(seq:List[str]):
@@ -111,6 +122,9 @@ def reverse_complement(seq: list[str]):
 =======
 def reverse_complement(seq: [str]):
 >>>>>>> ef83b33 (Update the main func and add flake8*.png)
+=======
+def reverse_complement(seq: [str]):
+>>>>>>> 0581418 (Add new utilites and modified filter_fastq)
     result = reverse(complement(seq))
     return result
 
@@ -118,12 +132,16 @@ def reverse_complement(seq: [str]):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0581418 (Add new utilites and modified filter_fastq)
 def gc_cont(seq: [str]):
     an_seq = seq.upper()
     g_count = an_seq.count("G")
     c_count = an_seq.count("C")
     result = ((g_count + c_count) / len(seq)) * 100
     return int(result)
+<<<<<<< HEAD
 =======
 def gc_cont(seq:List[str]):
     seq_ = seq.upper()
@@ -143,3 +161,5 @@ def gc_cont(seq: [str]):
     result = ((g_count + c_count) / len(seq)) * 100
     return int(result)
 >>>>>>> 7606f0f (Add HW4 funcs to module2.py & attach flake8 res)
+=======
+>>>>>>> 0581418 (Add new utilites and modified filter_fastq)
