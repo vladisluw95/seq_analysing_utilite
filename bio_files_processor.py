@@ -38,6 +38,7 @@ def parse_blast_output(input_file: str):
     """
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     blast_res = []
     proteins = []
@@ -45,11 +46,16 @@ def parse_blast_output(input_file: str):
 =======
     proteins = []
 >>>>>>> 0581418 (Add new utilites and modified filter_fastq)
+=======
+>>>>>>> f22a624 (Update bio_files_processor.py)
     with open(input_file, "r") as file:
         lines = file.readlines()
         for line in range(len(lines)-1):
             if lines[line].startswith("Description"):
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f22a624 (Update bio_files_processor.py)
                 blast_res.append(lines[line + 1].strip())
         for line in blast_res:
             words = ""
@@ -60,6 +66,7 @@ def parse_blast_output(input_file: str):
                 words += l
             else:
                 proteins.append(words)
+<<<<<<< HEAD
         proteins.sort()
 <<<<<<< HEAD
 =======
@@ -76,15 +83,17 @@ input_fasta = os.path.join("example_multiline_fasta.fasta")
 output_fasta = os.path.join("output_fasta.fasta")
 =======
                 proteins.append(lines[line + 1].strip())
+=======
+>>>>>>> f22a624 (Update bio_files_processor.py)
         proteins.sort()
-    with open(output_file, "w") as file:
-        for p in proteins:
-            file.write(p + "\n")
 
 
 input_file = os.path.join("example_blast_results.txt")
 output_file = os.path.join("output_file.txt")
 input_fasta = os.path.join("example_multiline_fasta.fasta")
 output_fasta = os.path.join("output_fasta.fasta")
+<<<<<<< HEAD
 parse_blast_output(input_file)
 >>>>>>> 0581418 (Add new utilites and modified filter_fastq)
+=======
+>>>>>>> f22a624 (Update bio_files_processor.py)
