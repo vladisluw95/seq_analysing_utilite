@@ -100,4 +100,8 @@ def filter_fastq(input_fastq:str,
 
 input_fastq = os.path.join("example_fastq.fastq")
 output_fastq = os.path.join("output_fastq.fastq")
+<<<<<<< HEAD
 filter_fastq(input_fastq,output_fasta)
+=======
+filter_fastq(input_fastq,output_fastq)
+>>>>>>> 8c818ea (Add changes for merging)

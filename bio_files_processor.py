@@ -36,6 +36,11 @@ def parse_blast_output(input_file: str):
     Return value:
     The function does not return any values but creates a file with list of proteins in alphabetical order.
     """
+<<<<<<< HEAD
+=======
+    blast_res = []
+    proteins = []
+>>>>>>> 8c818ea (Add changes for merging)
     with open(input_file, "r") as file:
         lines = file.readlines()
         for line in range(len(lines)-1):
@@ -51,6 +56,13 @@ def parse_blast_output(input_file: str):
             else:
                 proteins.append(words)
         proteins.sort()
+<<<<<<< HEAD
+=======
+
+    with open(output_file, "w") as file:
+        for p in proteins:
+            file.write(p + "\n")
+>>>>>>> 8c818ea (Add changes for merging)
 
 
 input_file = os.path.join("example_blast_results.txt")
