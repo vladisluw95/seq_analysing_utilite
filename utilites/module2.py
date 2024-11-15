@@ -1,8 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 from typing import Tuple, Union, List
 
 =======
 >>>>>>> 7606f0f (Add HW4 funcs to module2.py & attach flake8 res)
+=======
+from typing import Tuple, Dict, Any
+
+>>>>>>> ef83b33 (Update the main func and add flake8*.png)
 seqs = {
     # 'name' : ('sequence', 'quality')
     '@SRX079801': ('ACAGCAACATAAACATGATGGGATGGCGTAAGCCCCCGAGATATCAGTTTACCCAGGATAAGAGATTAAATTATGAGCAACATTATTAA', 'FGGGFGGGFGGGFGDFGCEBB@CCDFDDFFFFBFFGFGEFDFFFF;D@DD>C@DDGGGDFGDGG?GFGFEGFGGEF@FDGGGFGFBGGD'),
@@ -19,6 +24,7 @@ seqs = {
     '@SRX079812': ('AGTGAGACACCCCTGAACATTCCTAGTAAGACATCTTTGAATATTACTAGTTAGCCACACTTTAAAATGACCCG', '<98;<@@@:@CD@BCCDD=DBBCEBBAAA@9???@BCDBCGF=GEGDFGDBEEEEEFFFF=EDEE=DCD@@BBC')
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 def gc_bounds_12(*args: Tuple[float, float]) -> float:
@@ -87,30 +93,29 @@ phred = {
     'H': 39,
     'I': 40
 }
+=======
+>>>>>>> ef83b33 (Update the main func and add flake8*.png)
 
-
-def gc_bounds(gc_low: int, gc_high: int):
+def gc_bounds_12(*args: Tuple[float, float]) -> float:
     result = {}
-    for key, values in seqs.items():
-        G_count = values[0].count("G")
-        C_count = values[0].count("C")
-        gc_content = ((G_count + C_count) / len(values[0])) * 100
-        if gc_low <= gc_content <= gc_high:
-            result[key] = values
+    for key, (sequence, quality) in seqs.items():
+        gc = sequence.count("G") + sequence.count("C")
+        gc_cont = gc / len(sequence) * 100
+        result[key] = gc_cont
     return result
 
 
-def length_bounds(length_low: int, length_high: int):
+def length_bounds_12(*args: Tuple[int, int]) -> int:
     result = {}
-    for key, values in seqs.items():
-        len_seq = len(values[0])
-        if len_seq >= length_low and len_seq <= length_high:
-            result[key] = values
+    for key, (sequence, quality) in seqs.items():
+        len_seq = len(sequence)
+        result[key] = len_seq
     return result
 
 
-def quality_threshold(quality: int):
+def quality_threshold_12(int) -> str:
     result = {}
+<<<<<<< HEAD
     for key, values in seqs.items():
         q_seq = 0
         for s in values[1]:
@@ -121,4 +126,9 @@ def quality_threshold(quality: int):
         if quality <= q_seq:
             result[key] = values
 >>>>>>> 7606f0f (Add HW4 funcs to module2.py & attach flake8 res)
+=======
+    for key, (sequence, quality) in seqs.items():
+        q_score = (sum(ord(q)-33 for q in quality)/len(quality))
+        result[key] = q_score
+>>>>>>> ef83b33 (Update the main func and add flake8*.png)
     return result

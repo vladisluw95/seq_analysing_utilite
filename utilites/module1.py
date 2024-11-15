@@ -60,6 +60,7 @@ def transcribe(seq: list[str]):
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 def reverse(seq: [str]):
     return seq[::-1]
 
@@ -79,6 +80,13 @@ def reverse(seq: list[str]):
 
 def complement(seq: list[str]):
 >>>>>>> 7606f0f (Add HW4 funcs to module2.py & attach flake8 res)
+=======
+def reverse(seq: [str]):
+    return seq[::-1]
+
+
+def complement(seq: [str]):
+>>>>>>> ef83b33 (Update the main func and add flake8*.png)
     if 'U' in seq or 'u' in seq:
         rules = complimentary_rules_RNA
     else:
@@ -92,6 +100,7 @@ def complement(seq: list[str]):
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 def reverse_complement(seq: [str]):
 =======
 def reverse_complement(seq:List[str]):
@@ -99,10 +108,14 @@ def reverse_complement(seq:List[str]):
 =======
 def reverse_complement(seq: list[str]):
 >>>>>>> 7606f0f (Add HW4 funcs to module2.py & attach flake8 res)
+=======
+def reverse_complement(seq: [str]):
+>>>>>>> ef83b33 (Update the main func and add flake8*.png)
     result = reverse(complement(seq))
     return result
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 def gc_cont(seq: [str]):
@@ -121,6 +134,9 @@ def gc_cont(seq:List[str]):
 >>>>>>> 8fa1609 (Add HW3 funcs to module1)
 =======
 def gc_cont(seq: list[str]):
+=======
+def gc_cont(seq: [str]):
+>>>>>>> ef83b33 (Update the main func and add flake8*.png)
     an_seq = seq.upper()
     g_count = an_seq.count("G")
     c_count = an_seq.count("C")
