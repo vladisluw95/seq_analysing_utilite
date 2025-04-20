@@ -67,12 +67,3 @@ if __name__ == '__main__':
         min_gc=args.min_gc,
         max_gc=args.max_gc
     )
-
-
-input_file = 'input_fastq.fastq'
-output_fastq = 'filtered.fastq'
-
-filter_fastq(input_file, output_fastq, min_len=0, max_len=1000, min_quality=0, min_gc=40, max_gc=60)
-
-
-

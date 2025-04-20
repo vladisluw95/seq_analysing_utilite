@@ -9,5 +9,7 @@ from fastq_filter import filter_fastq
             ('input.fastq', 'output.fastq', 0, 100, 0, 100, 10, False)
     ]
 )
-def test_output(input_file, output_file, min_len, max_len, min_quality, min_gc, max_gc, result):
-    assert filter_fastq(input_file, output_file, min_len, max_len, min_quality, min_gc, max_gc) == result
+def test_output(input_file, output_file, min_len, max_len, min_quality,
+                min_gc, max_gc, result):
+    assert filter_fastq(input_file, output_file, min_len, max_len, min_quality,
+                        min_gc, max_gc) == result
