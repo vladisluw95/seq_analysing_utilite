@@ -1,4 +1,0 @@
-Some functions from Biopython require for filer_fastq.py 
-
-from Bio import SeqIO  - for reading fastq format files
-from Bio.SeqUtils import gc_fraction  - calculation of gc-fraction 
